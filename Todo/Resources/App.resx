@@ -120,4 +120,7 @@
   <data name="ResponsiblePartyId" xml:space="preserve">
     <value>Responsible User E-mail</value>
   </data>
+  <data name="SortByRank" xml:space="preserve">
+    <value>Sort by rank</value>
+  </data>
 </root>

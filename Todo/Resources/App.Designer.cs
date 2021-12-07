@@ -68,5 +68,14 @@ namespace Todo.Resources {
                 return ResourceManager.GetString("ResponsiblePartyId", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sort by rank.
+        /// </summary>
+        public static string SortByRank {
+            get {
+                return ResourceManager.GetString("SortByRank", resourceCulture);
+            }
+        }
     }
 }
