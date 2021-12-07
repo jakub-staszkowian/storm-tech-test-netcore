@@ -74,9 +74,9 @@
 
                     <div class="col-md-4 text-right">
                         <small>
-                            @item.ResponsibleParty.UserName
+                            @item.GetUserName()
 
-                            <img src="https://www.gravatar.com/avatar/@Gravatar.GetHash(item.ResponsibleParty.Email)?s=30" />
+                            <img src="@Gravatar.GetImageUrl(item)" />
 
                         </small>
                     </div>

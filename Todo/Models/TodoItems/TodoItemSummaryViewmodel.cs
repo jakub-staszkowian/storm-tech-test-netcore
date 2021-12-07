@@ -1,4 +1,5 @@
 ﻿using Todo.Data.Entities;
+using Todo.Models.Gravatar;
 
 namespace Todo.Models.TodoItems
 {
@@ -11,7 +12,9 @@ namespace Todo.Models.TodoItems
         public Importance Importance { get; }
         public int Rank { get; }
 
-        public TodoItemSummaryViewmodel(int todoItemId, string title, bool isDone, UserSummaryViewmodel responsibleParty, Importance importance, int rank)
+        public GravatarProfile GravatarProfile { get; }
+
+        public TodoItemSummaryViewmodel(int todoItemId, string title, bool isDone, UserSummaryViewmodel responsibleParty, Importance importance, int rank, GravatarProfile profile = null)
         {
             TodoItemId = todoItemId;
             Title = title;
@@ -19,6 +22,16 @@ namespace Todo.Models.TodoItems
             ResponsibleParty = responsibleParty;
             Importance = importance;
             Rank = rank;
+        }
+
+        public string GetUserName()
+        {
+            if (GravatarProfile != null)
+            {
+                return GravatarProfile.DisplayName;
+            }
+
+            return ResponsibleParty.UserName;
         }
     }
 }
