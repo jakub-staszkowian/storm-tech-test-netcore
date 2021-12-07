@@ -9,11 +9,16 @@ namespace Todo.EntityModelMappers.TodoLists
 {
     public static class TodoListDetailViewmodelFactory
     {
-        public static TodoListDetailViewmodel Create(TodoList todoList, bool shouldSortByRank)
+        public static TodoListDetailViewmodel Create(TodoList todoList, bool shouldSortByRank, bool hideDoneItems)
         {
-            var itemsEnumerable = todoList.Items.Select(TodoItemSummaryViewmodelFactory.Create);
+            var itemsEnumerable = ApplyFiltering(todoList.Items, hideDoneItems).Select(TodoItemSummaryViewmodelFactory.Create);
             var items = ApplyOrdering(itemsEnumerable, shouldSortByRank).ToList();
-            return new TodoListDetailViewmodel(todoList.TodoListId, todoList.Title, items);
+            return new TodoListDetailViewmodel(todoList.TodoListId, todoList.Title, items, shouldSortByRank, hideDoneItems);
+        }
+
+        private static IEnumerable<TodoItem> ApplyFiltering(IEnumerable<TodoItem> items, bool hideDoneItems)
+        {
+            return items.Where(i => !hideDoneItems || !i.IsDone);
         }
 
         private static IOrderedEnumerable<TodoItemSummaryViewmodel> ApplyOrdering(IEnumerable<TodoItemSummaryViewmodel> items, bool shouldSortByRank)
