@@ -8,6 +8,8 @@ using Todo.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Localization;
+using Todo.Resources;
 
 namespace Todo
 {
@@ -38,7 +40,8 @@ namespace Todo
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllers();
-
+            services.AddLocalization();
+            services.AddScoped<IStringLocalizer<App>, StringLocalizer<App>>();
             services.AddAuthorization(options =>
             {
                 options.FallbackPolicy = new AuthorizationPolicyBuilder()
