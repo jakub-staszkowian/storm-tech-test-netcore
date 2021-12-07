@@ -1,2 +1,3 @@
 1. In ordering task I've decided to implement ordering mechanism in TodoListDetailViewmodelFactory because it's a factory which produces specific Viewmodel for one View in which we would like to have such ordering, so for me it's the best place to implement this feature.
 2. Decided to use resources for storing "user friendly" label for ResponsiblePartyId
+3. In task 7 sord direction was not specified. Due to lack of time I've decided to use 'default' ASC way. In production solution I would add both ways to order by rank.
