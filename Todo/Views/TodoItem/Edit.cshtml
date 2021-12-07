@@ -1,5 +1,6 @@
-﻿@using Todo.Data
-@using Todo.Data.Entities
+﻿@using Microsoft.Extensions.Localization
+@using Todo.Data
+@using Todo.Resources
 @using Todo.Views.TodoItem
 @model Todo.Models.TodoItems.TodoItemEditFields
 
@@ -10,6 +11,9 @@
 
 
 @inject ApplicationDbContext dbContext
+@inject IStringLocalizer<App> L
+
+@L["YourText"]
 
 <h2>@ViewData["Title"]</h2>
 
@@ -35,7 +39,7 @@
                 @Html.DropDownListFor(
                     m => m.Importance,
                     SelectListConvenience.ImportanceSelectListItems,
-                    new {@class="form-control"}
+                    new { @class = "form-control" }
                     )
                 <span asp-validation-for="Importance" class="text-danger"></span>
             </div>
@@ -48,11 +52,11 @@
 
 
             <div class="form-group">
-                <label asp-for="ResponsiblePartyId"></label>
+                <label asp-for="ResponsiblePartyId">@L["ResponsiblePartyId"]</label>
                 @Html.DropDownListFor(
                     m => m.ResponsiblePartyId,
                     dbContext.UserSelectListItems(),
-                    new {@class="form-control"}
+                    new { @class = "form-control" }
                     )
                 <span asp-validation-for="ResponsiblePartyId" class="text-danger"></span>
             </div>
