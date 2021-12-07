@@ -22,7 +22,19 @@
             </a>
         </li>
         <li class="list-group-item">
-            <a asp-action="Detail" asp-controller="TodoList" asp-route-todoListId="@Model.TodoListId" asp-route-shouldSortByRank="true">
+            <a asp-action="Detail" asp-controller="TodoList" asp-route-todoListId="@Model.TodoListId" asp-route-shouldSortByRank="@Model.ShouldSortByRank" asp-route-hideDoneItems="!@Model.HideDoneItems">
+                @if (Model.HideDoneItems) 
+                { 
+                    <strong>@L["ShowDoneItems"]</strong> 
+                }
+                else
+                { 
+                    <strong>@L["HideDoneItems"]</strong>
+                }
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a asp-action="Detail" asp-controller="TodoList" asp-route-todoListId="@Model.TodoListId" asp-route-shouldSortByRank="true" asp-route-hideDoneItems="@Model.HideDoneItems">
                 <strong>@L["SortByRank"]</strong>
             </a>
         </li>

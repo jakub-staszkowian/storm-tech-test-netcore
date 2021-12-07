@@ -61,11 +61,29 @@ namespace Todo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide done items.
+        /// </summary>
+        public static string HideDoneItems {
+            get {
+                return ResourceManager.GetString("HideDoneItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Responsible User E-mail.
         /// </summary>
         public static string ResponsiblePartyId {
             get {
                 return ResourceManager.GetString("ResponsiblePartyId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show done items.
+        /// </summary>
+        public static string ShowDoneItems {
+            get {
+                return ResourceManager.GetString("ShowDoneItems", resourceCulture);
             }
         }
         
