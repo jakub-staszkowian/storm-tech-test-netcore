@@ -1,0 +1,1 @@
+1. In ordering task I've decided to implement ordering mechanism in TodoListDetailViewmodelFactory because it's a factory which produces specific Viewmodel for one View in which we would like to have such ordering, so for me it's the best place to implement this feature.
